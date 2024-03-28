@@ -28,8 +28,8 @@ size_t binary_tree_height(const binary_tree_t *tree)
 /**
  * bal_avl - Checks if a subtree is balanced.
  * @tree: Pointer to the root of the subtree.
- * @min_value: Minimum value allowed in the subtree
- * @max_value: Maximum value allowed in the subtree
+ * @lower: Minimum value allowed in the subtree
+ * @high: Maximum value allowed in the subtree
  * Return: 1 if subtree is AVL balanced, 0 otherwise
  */
 int bal_avl(const binary_tree_t *tree, int lower, int high)
@@ -49,7 +49,8 @@ int bal_avl(const binary_tree_t *tree, int lower, int high)
 	{
 		return (0);
 	}
-	return (bal_avl(tree->left, lower, tree->n - 1) && bal_avl(tree->right, tree->n + 1, high));
+	return (bal_avl(tree->left, lower, tree->n - 1) &&
+		bal_avl(tree->right, tree->n + 1, high));
 	}
 	return (1);
 }
