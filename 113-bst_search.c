@@ -9,38 +9,22 @@
 bst_t *bst_search(const bst_t *tree, int value)
 {
 	if (tree == NULL)
-	{
-		printf("Tree is NULL\n");
 		return (NULL);
-	}
-
-	printf("Searching in node: %d\n", tree->n);
 
 	if (value < tree->n)
 	{
-		printf("Going left\n");
 		if (tree->left)
 			return (bst_search(tree->left, value));
 		else
-		{
-			printf("Left child is NULL\n");
 			return (NULL);
-		}
 	}
 	else if (value > tree->n)
 	{
-		printf("Going right\n");
-		if (tree->right)
+		if  (tree->right)
 			return (bst_search(tree->left, value));
 		else
-		{
-			printf("Right child is NULL\n");
 			return (NULL);
-		}
 	}
 	else
-	{
-		printf("Value found: %d\n", value);
 		return ((bst_t *)tree);
-	}
 }
