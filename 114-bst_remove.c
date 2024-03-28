@@ -24,9 +24,10 @@ int get_successor(bst_t *node)
 int replace_and_remove(bst_t *node)
 {
 	int new_value = get_successor(node->right);
+
 	node->n = new_value;
 
-	return new_value;
+	return (new_value);
 }
 
 /**
@@ -85,6 +86,7 @@ bst_t *bst_remove(bst_t *root, int value)
 	else
 	{
 		int type = remove_type(root);
+
 		if (type == 2)
 			root->n = replace_and_remove(root->right);
 	}
